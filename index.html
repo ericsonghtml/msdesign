@@ -217,16 +217,15 @@
             <div class="button_label">Say hello</div>
           </a>
         </div>
-      </div>
-      <div class="nav_mobile-menu-button w-nav-button">
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+        <div class="nav_mobile-menu-button w-nav-button">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
             <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
               <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
               <line x1="1" y1="5" x2="23" y2="5"></line>
               <line x1="1" y1="19" x2="23" y2="19"></line>
             </g>
           </svg></div>
-      </div>
+        </div>
     </div>
   </div>
   <header class="section is-secondary">
@@ -397,5 +396,20 @@
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/SplitText.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.14.2/ScrollTrigger.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      var hero = document.querySelector("[data-hero-background]");
+      if (!hero) return;
+      var image = hero.querySelector("img");
+      if (!image) return;
+      if (image.complete) {
+        hero.classList.add("is-loaded");
+        return;
+      }
+      image.addEventListener("load", function () {
+        hero.classList.add("is-loaded");
+      });
+    });
+  </script>
 </body>
 </html>
